@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import {persistUser} from '../util/user';
 import style from './styles/auth_form.js';
-
+import {fetchSignup, fetchLogin} from '../util/api';
 
 export default class AuthForm extends React.Component {
   constructor(){
@@ -38,23 +38,14 @@ export default class AuthForm extends React.Component {
   }
 
   login(){
-    fetch("http://192.168.3.21:3000/api/session/",{
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        user: this.state
-      })
-    })
+    fetchLogin(this.state)
     .then(response => {
       if (response.status === 200){
         response.json()
         .then( responseBody => {
           persistUser(responseBody);
           this.callback();
-        })
+        });
       } else {
           this.setState({errors: ["Invalid Email/Password"]});
         }
@@ -62,16 +53,7 @@ export default class AuthForm extends React.Component {
   }
 
   signup(){
-    fetch("http://192.168.3.21:3000/api/users/",{
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        user: this.state
-      })
-    })
+    fetchSignup(this.state)
     .then(response => {
       if (response.status === 200){
         response.json()

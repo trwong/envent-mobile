@@ -8,6 +8,7 @@ import Loader from '../misc/loader';
 import style from '../styles/map';
 import Header from '../header';
 import Image from 'react-native-transformable-image-next';
+import {fetchModuleData} from '../../util/api';
 
 export default class Map extends React.Component {
   constructor(props){
@@ -17,11 +18,16 @@ export default class Map extends React.Component {
     };
   }
 
-  handleLoad(){
-    this.setState({isLoading: false})
-  }
-  componentDidMount(){
-    this.setState({isLoading: false});
+
+  componentWillMount(){
+    let eventId = this.props.navigation.state.params.eventId;
+    fetchModuleData(eventId, "maps")
+    .then((map)=>{
+      this.setState({
+        map,
+        isLoading: false
+      });
+    });
   }
 
   render (){
@@ -30,16 +36,17 @@ export default class Map extends React.Component {
         <Loader />
       );
     }
+    debugger
     return(
       <View>
         <Header
           // TODO: MAP TITLE
-          title = {"Map"}
+          title = {this.state.map.title}
           navigation = {this.props.navigation}
         />
       <View style={style.mapContainer}>
         <Image
-            source = {{uri: "https://www.sfoutsidelands.com/uploads/ol17-festival-map-2200-1200.jpg"}}
+            source = {{uri: this.state.map.img_url}}
             style = {style.map}
           />
       </View>

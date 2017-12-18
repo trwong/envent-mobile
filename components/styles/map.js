@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
   map: {
     width: '100%',
-    height: '70%',
+    height: '85%',
     borderWidth: 0,
     shadowOffset:{  width: 1,  height: 1,  },
     shadowColor: 'rgba(0,0,0,.5)',

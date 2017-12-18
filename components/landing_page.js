@@ -12,18 +12,16 @@ import {
   TouchableOpacity,
   StatusBar,
   AsyncStorage,
-  ImageBackground
+  ImageBackground,
 } from 'react-native';
 import {
   NavigationActions,
   DrawerNavigator,
 } from 'react-navigation';
-
-
+import {fetchEvent} from '../util/api';
 import style from './styles/landing_page.js';
 import AuthForm from './auth_form';
 import Loader from './misc/loader';
-// import {findEventFromInput} from '../util/api';
 export default class HomeLandingPage extends React.Component {
 
   constructor(props) {
@@ -48,19 +46,15 @@ export default class HomeLandingPage extends React.Component {
 
   }
 
+
+  // TODO2: distinguis btw server error and event not found
   findEventFromInput(eventTag) {
     // TODO1 Add logic if failed response
-    const END_POINT = "http://192.168.3.21:3000";
-    return fetch(END_POINT+"/api/events/"+eventTag+"/?mobile=true")
-      .then(
-        (response) => {
-          this.setState({isLoading: false});
-          if (response.status === 200){
-            return response.json();
-          } else{
-            throw new Error(response.statusText);
-          }
-        })
+      return fetchEvent(eventTag)
+      .then((response)=>{
+        this.setState({isLoading: false})
+        return response;
+      })
       .catch(error => {
         this.setState({
           status: "Event Not Found",
