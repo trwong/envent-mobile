@@ -32,6 +32,11 @@ export default StyleSheet.create({
     bottom: 0,
     height: Dimensions.get('window').height- 120,
   },
+  listWrapperNews: {
+    top: 0,
+    bottom: 0,
+    height: Dimensions.get('window').height- 80,
+  },
 
 
   eventList:{
@@ -77,10 +82,10 @@ export default StyleSheet.create({
     height: 160,
     padding: 10,
     paddingBottom: 100,
-
-    shadowOffset:{  width: -1,  height: -1,  },
-    shadowColor: 'rgba(0,0,0,.5)',
-    shadowOpacity: .5,
+    backgroundColor: '#eee',
+    shadowOffset:{  width: 0,  height: -2,  },
+    shadowColor: 'rgba(0,0,0,.4)',
+    shadowOpacity: 1,
   },
   postTitle:{
     width: '100%',
@@ -89,7 +94,11 @@ export default StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 5,
     borderBottomWidth: 1,
-    borderColor: "#ccc"
+    borderColor: "#ccc",
+    shadowOffset:{  width: 0,  height: 1,  },
+    shadowColor: 'rgba(0,0,0,.4)',
+    shadowOpacity: 1,
+    shadowRadius: 2
   },
 
   postButton: {
@@ -99,6 +108,10 @@ export default StyleSheet.create({
     backgroundColor: '#4abdac',
     borderRadius: 5,
     padding: 5,
+    shadowOffset:{  width: 0,  height: 1,  },
+    shadowColor: 'rgba(0,0,0,.4)',
+    shadowOpacity: 1,
+    shadowRadius: 2
   },
   postButtonText:{
     color: '#fff',
@@ -126,7 +139,9 @@ export default StyleSheet.create({
     textAlign: 'center',
     color: '#999',
   },
-  authWrapper: {
+  fade:{
+    height: 20,
+    width: '100%',
   }
 
 });

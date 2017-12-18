@@ -13,13 +13,14 @@ export default StyleSheet.create({
     right: 0,
     backgroundColor: 'rgba(0,0,0,.85)',
     justifyContent: 'center',
-    padding: 40
+    padding: "7%"
   },
 
   closeButton: {
     textAlign: "right",
     fontWeight: "bold",
-    paddingRight: 10
+    paddingRight: 10,
+    color: '#aaa'
   },
 
   errorText: {
@@ -49,16 +50,16 @@ export default StyleSheet.create({
     fontSize: 15,
     height: 30,
     padding: 5,
+    paddingLeft: 15,
     color: '#999',
+    borderRadius: 10,
     top: 5,
   },
   bottomButtons: {
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft: 50,
-    paddingRight: 50,
     paddingTop: 20,
     paddingBottom: 20,
   },
@@ -75,16 +76,17 @@ export default StyleSheet.create({
   },
   skipContainer: {
     top: 10,
-    paddingBottom: 25,
-    paddingLeft: 100,
-    paddingRight: 100,
+    paddingBottom: 25
   },
   skipButton: {
     borderTopWidth: 1,
     borderColor: '#aaa',
-    padding: 10,
+    paddingTop: 10,
+    paddingLeft: 25,
+    paddingRight: 25,
     height: 20,
-    top: 10
+    top: 10,
+    alignSelf: 'center'
   },
   skipButtonText: {
     textAlign: 'center',
@@ -92,6 +94,8 @@ export default StyleSheet.create({
   },
   or: {
     textAlign: 'center',
-    top: 10
+    top: 10,
+    marginLeft: 15,
+    marginRight: 15,
   }
   });

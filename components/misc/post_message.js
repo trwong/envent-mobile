@@ -30,6 +30,10 @@ export default class PostMessage extends React.Component {
       padding: 10,
       backgroundColor: '#fff',
       borderRadius: 5,
+      shadowOffset:{  width: 0,  height: 1,  },
+      shadowColor: 'rgba(0,0,0,.4)',
+      shadowOpacity: 1,
+      shadowRadius: 2
     };
     if (this.props.type === "messageBoard"){
       Object.assign(base, {height: 85});

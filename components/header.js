@@ -23,11 +23,15 @@ export default class AppHeader extends React.Component {
 
   render(){
     if (this.props.landingPage){
-      let iconColor = (this.props.scrolledUp) ? "#000" : '#fff'
+      let iconColor = (this.props.scrolledUp) ? "#000" : '#fff';
       return (
         <Header
           leftComponent={
-            { icon: 'menu', color: iconColor, onPress: this.openDrawer.bind(this)}
+            { icon: 'menu',
+              color: iconColor,
+              onPress: this.openDrawer.bind(this),
+              underlayColor: "rgba(0,0,0,0)"
+            }
           }
           centerComponent={
             { text: this.props.title, style: style.headerTitle}
@@ -40,7 +44,9 @@ export default class AppHeader extends React.Component {
     return (
       <Header
         leftComponent={
-          { icon: 'menu', color: '#000', onPress: this.openDrawer.bind(this)}
+          { icon: 'menu',
+            color: '#000',
+            onPress: this.openDrawer.bind(this)}
         }
         centerComponent={
           { text: this.props.title, style: style.headerTitle}

@@ -34,7 +34,7 @@ export default class Schedule extends React.Component {
 
 
   listStyle(){
-    return (this.isAdmin()) ? style.listWrapperPostable : style.listWrapper;
+    return (this.isAdmin()) ? style.listWrapperPostable : style.listWrapperNews;
   }
 
   fetchNews(eventId = null){

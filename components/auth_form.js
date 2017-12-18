@@ -99,7 +99,7 @@ export default class AuthForm extends React.Component {
             <View style={style.AuthInputWrapper}>
               <TextInput
                 style= {style.authInput}
-                placeholder="email"
+                placeholder="Username"
                 onChangeText={ email => this.handleChange({email}) }
                 keyboardType= 'email-address'
                 returnKeyType = "next"
@@ -112,7 +112,7 @@ export default class AuthForm extends React.Component {
               <TextInput
                 ref='passwordInput'
                 style= {style.authInput}
-                placeholder="password"
+                placeholder="Password"
                 onChangeText={ password => this.handleChange({password}) }
                 secureTextEntry = {true}
                 onSubmitEditing = {this.login.bind(this)}

@@ -1,5 +1,17 @@
 {
   "expo": {
-    "sdkVersion": "23.0.0"
-  }
+    "name": "Envent",
+    "icon": "./assets/logo.png",
+    "version": "1.0.0",
+    "slug": "envent-app",
+    "sdkVersion": "23.0.0",
+    "ios": {
+      "bundleIdentifier": "com.yourcompany.yourappname"
+    },
+    "android": {
+      "package": "com.envent.enventapp"
+    }
+  },
+  "name": "Envent",
+  "displayName": "Envent"
 }
